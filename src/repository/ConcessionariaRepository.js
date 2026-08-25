@@ -14,17 +14,20 @@ export class ConcessionariaRepository {
     }
 
     async listarTodos() {
-        const concessionarias = await prisma.concessionaria.findMany();
+        const concessionaria = await prisma.concessionaria.findMany();
 
-        return concessionarias.map(c => new Concessionaria(
+        return concessionaria.map(c => new Concessionaria(
+            c.id,
             c.nome,
             c.cnpj,
-            c.cidade,
-            c.id
+            c.cidade
         ));
     }
 
     async buscarPorId(id) {
+
+        console.log("ID RECEBIDO NO REPOSITORY:", id);
+
         const dado = await prisma.concessionaria.findUnique({
             where: {
                 id: Number(id)
@@ -55,6 +58,7 @@ export class ConcessionariaRepository {
     }
 
     async excluir(id) {
+
         return await prisma.concessionaria.delete({
             where: {
                 id: Number(id)

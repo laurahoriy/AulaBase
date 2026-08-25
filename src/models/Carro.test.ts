@@ -6,7 +6,7 @@ describe('Modelo Carro', () => {
         const nomeDoCarro = 'Fusca';
         const tipoDoCarro = 'Sedan';
 
-        const carro = new Carro(nomeDoCarro, tipoDoCarro);
+        const carro = new Carro(null, nomeDoCarro, tipoDoCarro);
 
         expect(carro.nome).toBe('Fusca');
         expect(carro.tipo).toBe('Sedan');

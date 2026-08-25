@@ -15,7 +15,7 @@ export class ConcessionariaService {
         if (!cidade)
             throw new Error("A cidade é obrigatória.");
 
-        return await this.repository.salvar(new Concessionaria(nome, cnpj, cidade));
+        return await this.repository.salvar(new Concessionaria(null, nome, cnpj, cidade));
     }
 
     async listar() {

@@ -15,7 +15,7 @@ export class CarroRepository {
     async listarTodos() {
         const carros = await prisma.carro.findMany();
 
-        return dados.map(c => new Carro(c.id, c.nome, c.tipo));
+        return carros.map(c => new Carro(c.id, c.nome, c.tipo));
     }
 
     async buscarPorId(id) {
@@ -35,7 +35,7 @@ export class CarroRepository {
     }
 
     async atualizar(id, obj) {
-        return await prisma.Carro.update({
+        return await prisma.carro.update({
             where: {
                 id: Number(id)
             },

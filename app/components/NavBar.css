@@ -1,0 +1,13 @@
+nav, ul{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: blueviolet;
+   color: aliceblue;
+   padding-inline: 30px;
+   padding-block: 10px; 
+}
+
+ul{
+    gap: 30px;
+}

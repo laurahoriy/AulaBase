@@ -10,9 +10,9 @@ export class CarroService {
             throw new Error("O nome deve ter no mínimo 2 caracteres");
 
         if (!tipo)
-            throw new Error("O tipo do veiculo é obrigatório.");
+            throw new Error("O tipo do veículo é obrigatório.");
 
-        return await this.repository.salvar(new Carro(nome, tipo));
+        return await this.repository.salvar(new Carro(null, nome, tipo));
     }
 
     async listar() {
@@ -37,7 +37,11 @@ export class CarroService {
 
         await this.buscarPorId(id);
 
-        const carroAtualizado = new Carro(id, nome, tipo);
+        const carroAtualizado = new Carro(
+            id,
+            nome,
+            tipo
+        );
 
         return await this.repository.atualizar(id, carroAtualizado);
     }
